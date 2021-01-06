@@ -37,4 +37,12 @@
   #nameLabel {
     font-size: xx-large;
   }
+
+  #homeDiv {
+    height: 80vh;
+  }
+
+  #photo {
+    margin-left: 20px;
+  }
 }

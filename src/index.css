@@ -26,3 +26,13 @@ p {
   background: #1c3738;
 }
 /* End of Scrollbar*/
+
+@media (max-width: 550px) {
+  p {
+  font-size: medium;
+  }
+
+  h1 {
+    font-size: large;
+  }
+}

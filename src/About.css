@@ -20,3 +20,18 @@ padding-left: 200px;
 #aboutPDiv a:hover {
   text-decoration: underline;
 }
+
+@media (max-width: 550px) {
+  #aboutDiv {
+    height: 80vh;
+  }
+
+  #aboutPDiv {
+    padding-left: 10px;
+  }
+
+  #aboutPDiv a {
+    text-decoration: underline;
+    color:#0d0c1d;
+  }
+}

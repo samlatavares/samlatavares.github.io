@@ -18,3 +18,9 @@
    margin-top: 10vh; 
    cursor: pointer;
 }
+
+@media (max-width: 550px) {
+  #projectsDiv {
+    height: 220vh;
+  }
+}
