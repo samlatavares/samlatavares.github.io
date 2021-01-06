@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/samlatavares/samlatavares.github.io/static/css/main.553b98aa.chunk.css",
+    "main.js": "/samlatavares/samlatavares.github.io/static/js/main.e450def1.chunk.js",
+    "main.js.map": "/samlatavares/samlatavares.github.io/static/js/main.e450def1.chunk.js.map",
+    "runtime-main.js": "/samlatavares/samlatavares.github.io/static/js/runtime-main.61942461.js",
+    "runtime-main.js.map": "/samlatavares/samlatavares.github.io/static/js/runtime-main.61942461.js.map",
+    "static/js/2.5c0c8277.chunk.js": "/samlatavares/samlatavares.github.io/static/js/2.5c0c8277.chunk.js",
+    "static/js/2.5c0c8277.chunk.js.map": "/samlatavares/samlatavares.github.io/static/js/2.5c0c8277.chunk.js.map",
+    "static/js/3.9d43d937.chunk.js": "/samlatavares/samlatavares.github.io/static/js/3.9d43d937.chunk.js",
+    "static/js/3.9d43d937.chunk.js.map": "/samlatavares/samlatavares.github.io/static/js/3.9d43d937.chunk.js.map",
+    "index.html": "/samlatavares/samlatavares.github.io/index.html",
+    "static/css/main.553b98aa.chunk.css.map": "/samlatavares/samlatavares.github.io/static/css/main.553b98aa.chunk.css.map",
+    "static/js/2.5c0c8277.chunk.js.LICENSE.txt": "/samlatavares/samlatavares.github.io/static/js/2.5c0c8277.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.61942461.js",
+    "static/js/2.5c0c8277.chunk.js",
+    "static/css/main.553b98aa.chunk.css",
+    "static/js/main.e450def1.chunk.js"
+  ]
+}
