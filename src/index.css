@@ -1,0 +1,28 @@
+p {
+  font-size: large;
+}
+
+.main {
+  display: flex;
+  flex-flow: row wrap;
+  color: #0d0c1d;
+  width:100%;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  justify-content: center;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar{
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background: #1c3738;
+}
+/* End of Scrollbar*/

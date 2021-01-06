@@ -1,0 +1,28 @@
+nav {
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  background-color: #1c3738; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  padding-right: 20px;
+}
+
+nav a {
+  align-content: space-between;
+  padding: 10px 15px 10px 15px;
+  text-decoration: none;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
