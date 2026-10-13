@@ -1,0 +1,19 @@
+---
+import { getAlternates, getLang, getPath, htmlLang, languages, ui } from '@/i18n'
+
+const lang = getLang(Astro.url)
+const alternates = getAlternates(Astro.url)
+---
+<div class='join' role='group' aria-label={ui[lang].language}>
+	{languages.map((code) => (
+		<a
+			href={alternates ? alternates[code] : getPath(code, 'home')}
+			hreflang={htmlLang[code]}
+			lang={htmlLang[code]}
+			aria-current={code === lang ? 'true' : undefined}
+			class:list={['btn btn-sm join-item', code === lang ? 'btn-active' : 'btn-ghost']}
+		>
+			{code.toUpperCase()}
+		</a>
+	))}
+</div>

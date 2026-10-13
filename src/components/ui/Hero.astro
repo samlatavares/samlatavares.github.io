@@ -1,0 +1,20 @@
+---
+import { Image } from 'astro:assets'
+
+import SocialIcons from './SocialIcons.astro'
+import { getLang, ui } from '@/i18n'
+
+const {fullName, title, institute, bio, profilePicture} = Astro.props
+const t = ui[getLang(Astro.url)]
+---
+<div class='flex-1'>
+  <h1 class='text-4xl font-bold mb-4'>
+    {t.greeting} <span class='text-secondary'>{fullName}</span>
+  </h1>
+  <p class='text-xl text-base-content/70 mb-4'>{title}{institute ? ` · ${institute}` : ''}</p>
+  <p class='text-lg mb-6'>{bio}</p>
+  <div class='flex gap-4'>
+    <SocialIcons />
+  </div>
+</div>
+

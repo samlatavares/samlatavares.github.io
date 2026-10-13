@@ -1,0 +1,71 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { experiences, education, skills, publications } from '../data/cv'
+import { profile } from '@/settings'
+import { getLang, localize, ui } from '@/i18n'
+import { sortPublications } from '@/lib/utils'
+import CvTimeline from '@/components/ui/CvTimeline.astro'
+
+import List from '@/components/ui/List.astro'
+import PublicationsList from '@/components/ui/PublicationsList.astro'
+
+const lang = getLang(Astro.url)
+const t = ui[lang]
+
+const orderElement = <T extends { time: string }>(a: T, b: T) => {
+  const presentValues = ['present', 'now', 'current', 'today', 'atual', 'presente', 'hoje']
+  const end = (element: T) => element.time.split(' - ').pop()?.toLowerCase() ?? ''
+  // Itens em andamento vêm primeiro
+  if (presentValues.includes(end(a))) return -1
+  if (presentValues.includes(end(b))) return 1
+  return new Date(end(b)).getTime() - new Date(end(a)).getTime()
+}
+
+const orderedEducations = education.map((item) => localize(item, lang)).sort(orderElement)
+const orderedExperiences = experiences.map((item) => localize(item, lang)).sort(orderElement)
+const orderedPublications = sortPublications(publications.map((item) => localize(item, lang)))
+const localizedSkills = skills.map((item) => localize(item, lang))
+---
+
+<Layout title={`${t.navCv} | ${profile.fullName}`}>
+	{
+		orderedEducations.length > 0 && (
+			<section class='mb-12'>
+				<h2 class='text-2xl font-bold mb-6 border-b pb-2'>
+					{t.education}
+				</h2>
+				<CvTimeline elements={orderedEducations} colored={true} />
+			</section>
+		)
+	}
+
+	{
+		orderedExperiences.length > 0 && (
+			<section class='mb-12'>
+				<h2 class='text-2xl font-bold mb-6 border-b pb-2'>
+					{t.experience}
+				</h2>
+				<CvTimeline elements={orderedExperiences} colored={true} />
+			</section>
+		)
+	}
+
+	{
+		orderedPublications.length > 0 && (
+			<section class='mb-12'>
+				<h2 class='text-2xl font-bold mb-6 border-b pb-2'>
+					{t.navPublications}
+				</h2>
+				<PublicationsList elements={orderedPublications}/>
+			</section>
+		)
+	}
+
+	{
+		localizedSkills.length > 0 && (
+			<section class='mb-12'>
+				<List listTitle={t.skills} listItems={localizedSkills}/>
+			</section>
+		)
+	}
+</Layout>

@@ -1,0 +1,46 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { publications } from '@/data/cv'
+import { profile } from '@/settings'
+import { getLang, localize, ui } from '@/i18n'
+import { highlightAuthor, sortPublications } from '@/lib/utils'
+
+const lang = getLang(Astro.url)
+const t = ui[lang]
+const ALL_PAPERS = sortPublications(publications.map((paper) => localize(paper, lang)))
+---
+
+<Layout title={`${t.navPublications} | ${profile.fullName}`}>
+  <div class="prose max-w-none">
+    <h1 class="text-3xl font-bold mb-8">{t.navPublications}</h1>
+
+    <div class="space-y-8">
+      {
+        ALL_PAPERS.map((paper, index) => (
+          <div id={`paper-${index + 1}`} class="card bg-base-200 scroll-mt-8">
+            <div class="card-body">
+              <h2 class="card-title text-xl mt-0">
+                {paper.title}
+              </h2>
+              <p class="text-base my-0">
+                <span class="font-medium">{t.authors}</span>{" "}
+                <span set:html={highlightAuthor(paper.authors)} />
+              </p>
+              <p class="text-sm my-0">
+                <span class="italic">{paper.journal}</span> • {paper.time}
+              </p>
+              <p class="text-sm text-base-content/80">{paper.abstract}</p>
+              {paper.link &&
+                <div class="card-actions justify-end mt-4">
+                  <a href={paper.link} target="_blank" class="btn btn-sm btn-secondary text-secondary-content no-underline">
+                    {t.readPublication}
+                  </a>
+                </div>
+              }
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</Layout>

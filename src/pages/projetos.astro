@@ -1,0 +1,19 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { projects } from '@/data/projects'
+import { profile } from '@/settings'
+import { getLang, localize, ui } from '@/i18n'
+import ProjectCard from '@/components/ui/ProjectCard.astro'
+
+const lang = getLang(Astro.url)
+const t = ui[lang]
+---
+
+<Layout title={`${t.navProjects} | ${profile.fullName}`}>
+	<div>
+		<h1 class='text-3xl font-bold mb-8'>{t.navProjects}</h1>
+		<div class='grid grid-cols-1 md:grid-cols-2 gap-6'>
+			{projects.map((project) => <ProjectCard project={localize(project, lang)} />)}
+		</div>
+	</div>
+</Layout>

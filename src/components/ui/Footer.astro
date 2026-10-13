@@ -1,0 +1,25 @@
+---
+import { profile } from '../../settings'
+import { getLang, ui } from '@/i18n'
+
+const { fullName } = profile
+const t = ui[getLang(Astro.url)]
+---
+
+<footer class='footer footer-center bg-base-100 text-base-content px-4 py-8'>
+	<aside>
+		<p>
+			© {new Date().getFullYear()} {fullName}
+		</p>
+		<p>
+			{t.builtWith} <a
+				href='https://github.com/maiobarbero/astro_academia'
+				class='font-bold'
+				target='_blank'>Astro Academia</a
+			>, {t.by} <a
+				href='http://maiobarbero.dev'
+        class="font-bold"
+				target='_blank'>Matteo Barbero</a>
+		</p>
+	</aside>
+</footer>

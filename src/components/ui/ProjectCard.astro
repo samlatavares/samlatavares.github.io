@@ -1,0 +1,28 @@
+---
+import type { Project } from '@/types/cv'
+import { getLang, ui } from '@/i18n'
+
+interface Props {
+	project: Project
+}
+
+const { project } = Astro.props
+const t = ui[getLang(Astro.url)]
+---
+<div class='card bg-base-200 text-base-content h-full'>
+	<div class='card-body'>
+		<h3 class='card-title text-xl'>{project.title}</h3>
+		<p>{project.description}</p>
+		<div class='flex flex-wrap gap-2 my-2'>
+			{project.tags.map((tag) => <span class='badge badge-outline'>{tag}</span>)}
+		</div>
+		<div class='card-actions justify-end mt-2'>
+			{project.repo &&
+				<a href={project.repo} target='_blank' class='btn btn-sm btn-ghost'>{t.code}</a>
+			}
+			{project.demo &&
+				<a href={project.demo} target='_blank' class='btn btn-sm btn-secondary text-secondary-content'>{t.demo}</a>
+			}
+		</div>
+	</div>
+</div>

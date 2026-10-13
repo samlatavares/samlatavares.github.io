@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+
+@plugin "daisyui" {
+  themes:
+    light,
+    dark,
+    cupcake,
+    bumblebee,
+    emerald,
+    corporate,
+    synthwave,
+    retro,
+    cyberpunk,
+    valentine,
+    halloween,
+    garden,
+    forest,
+    aqua,
+    lofi,
+    pastel,
+    fantasy,
+    wireframe,
+    black,
+    luxury,
+    dracula,
+    cmyk,
+    autumn,
+    business,
+    acid,
+    lemonade,
+    night,
+    coffee,
+    winter,
+    dim,
+    nord,
+    sunset;
+}
+
+/* Temas próprios em lilás (claro e escuro). Para usar, veja lightTheme e darkTheme em src/settings.ts */
+@plugin "daisyui/theme" {
+  name: "lilas";
+  default: false;
+  prefersdark: false;
+  color-scheme: light;
+  --color-base-100: oklch(98.5% 0.01 305);
+  --color-base-200: oklch(95.5% 0.022 305);
+  --color-base-300: oklch(91% 0.035 305);
+  --color-base-content: oklch(27% 0.05 300);
+  --color-primary: oklch(62% 0.16 303);
+  --color-primary-content: oklch(98.5% 0.01 305);
+  --color-secondary: oklch(52% 0.19 300);
+  --color-secondary-content: oklch(98.5% 0.01 305);
+  --color-accent: oklch(58% 0.18 335);
+  --color-accent-content: oklch(98.5% 0.01 335);
+  --color-neutral: oklch(30% 0.04 300);
+  --color-neutral-content: oklch(96% 0.01 305);
+  --color-info: oklch(70% 0.13 240);
+  --color-info-content: oklch(20% 0.04 240);
+  --color-success: oklch(72% 0.15 160);
+  --color-success-content: oklch(20% 0.04 160);
+  --color-warning: oklch(82% 0.15 85);
+  --color-warning-content: oklch(25% 0.05 85);
+  --color-error: oklch(65% 0.2 25);
+  --color-error-content: oklch(98% 0.01 25);
+  --radius-selector: 1rem;
+  --radius-field: 0.5rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+@plugin "daisyui/theme" {
+  name: "lilas-escuro";
+  default: false;
+  prefersdark: false;
+  color-scheme: dark;
+  --color-base-100: oklch(22% 0.035 300);
+  --color-base-200: oklch(19% 0.03 300);
+  --color-base-300: oklch(16% 0.028 300);
+  --color-base-content: oklch(92% 0.02 305);
+  --color-primary: oklch(76% 0.13 303);
+  --color-primary-content: oklch(20% 0.04 300);
+  --color-secondary: oklch(80% 0.12 305);
+  --color-secondary-content: oklch(22% 0.05 300);
+  --color-accent: oklch(78% 0.13 335);
+  --color-accent-content: oklch(22% 0.05 335);
+  --color-neutral: oklch(30% 0.04 300);
+  --color-neutral-content: oklch(92% 0.02 305);
+  --color-info: oklch(75% 0.12 240);
+  --color-info-content: oklch(20% 0.04 240);
+  --color-success: oklch(76% 0.14 160);
+  --color-success-content: oklch(20% 0.04 160);
+  --color-warning: oklch(84% 0.14 85);
+  --color-warning-content: oklch(25% 0.05 85);
+  --color-error: oklch(70% 0.18 25);
+  --color-error-content: oklch(20% 0.05 25);
+  --radius-selector: 1rem;
+  --radius-field: 0.5rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}

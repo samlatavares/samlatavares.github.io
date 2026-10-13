@@ -1,0 +1,67 @@
+---
+import Layout from '../layouts/Layout.astro'
+
+import { profile } from '@/settings'
+import { publications } from '@/data/cv'
+import { projects } from '@/data/projects'
+import { getLang, getPath, localize, tr, ui } from '@/i18n'
+import { sortPublications } from '@/lib/utils'
+//import ProfilePictures from '@/assets/profile_pictures.jpg'
+import Hero from '@/components/ui/Hero.astro'
+import Grid from '@/components/ui/Grid.astro'
+import ArticleList from '@/components/ui/ArticleList.astro'
+import ProjectCard from '@/components/ui/ProjectCard.astro'
+
+const lang = getLang(Astro.url)
+const t = ui[lang]
+const { fullName, title, institute, bio } = profile
+const areas = profile.areas.map((area) => ({
+	title: tr(area.title, lang),
+	description: tr(area.description, lang),
+}))
+const featuredProjects = projects
+	.filter((project) => project.featured)
+	.map((project) => localize(project, lang))
+const recentPublications = sortPublications(
+	publications.map((paper) => localize(paper, lang))
+).slice(0, 3)
+---
+
+<Layout>
+	<!-- Apresentação -->
+	<section class='flex items-center gap-12 border-b pb-12'>
+		<Hero
+			fullName={fullName}
+			title={tr(title, lang)}
+			institute={tr(institute, lang)}
+			bio={tr(bio, lang)}
+			//profilePicture={ProfilePictures}
+		/>
+	</section>
+
+	<!-- Áreas de atuação -->
+	{areas.length > 0 &&
+		<section class='py-12 border-b'>
+			<Grid gridTitle={t.areas} gridItems={areas} />
+		</section>
+	}
+
+	<!-- Projetos em destaque -->
+	{featuredProjects.length > 0 &&
+		<section class='py-12 border-b'>
+			<h2 class='text-3xl font-bold mb-8'>{t.featuredProjects}</h2>
+			<div class='grid grid-cols-1 md:grid-cols-2 gap-6'>
+				{featuredProjects.map((project) => <ProjectCard project={project} />)}
+			</div>
+			<a href={getPath(lang, 'projects')} class='btn btn-ghost mt-6'>{t.allProjects}</a>
+		</section>
+	}
+
+	<!-- Publicações recentes -->
+	{recentPublications.length > 0 &&
+		<section class='py-12'>
+			<ArticleList listTitle={t.recentPublications} listItems={recentPublications} />
+			<a href={getPath(lang, 'publications')} class='btn btn-ghost mt-6'>{t.allPublications}</a>
+		</section>
+	}
+</Layout>
